@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" content="" />
+</h:head>
+<h:body>
+	<ui:composition>
+		<!-- Main sidebar -->
+					<div id="side-nav" class="sidebar sidebar-main sidebar-fixed">
+						<div class="sidebar-content">
+
+							<!-- User menu -->
+							<div class="sidebar-user">
+								<div class="category-content"></div>
+							</div>
+							<!-- /user menu -->
+							<!-- Main navigation -->
+							<div class="sidebar-category sidebar-category-visible">
+								<div class="category-content no-padding">
+									<ul class="navigation navigation-main navigation-accordion">
+
+										<!-- Main -->
+										<li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
+										<li><a href="../templates/dashboard.xhtml"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+										<li><a href="../templates/registrations.xhtml"><i class="icon-pencil7"></i> <span>Registrations</span></a></li>
+										<li><a href="../templates/waitingList.xhtml"><i class="icon-pencil7"></i> <span>Waiting list</span></a></li>
+										<li><a href="../templates/registrationsEdited.xhtml"><i class="icon-pencil7"></i> <span>Edited registrations</span></a></li>
+										<li><a href="../templates/registrationsOther.xhtml"><i class="icon-pencil7"></i> <span>Other registrations</span></a></li>
+										<!-- ADMINISTRATION -->
+										<li><a href="#"><i class="icon-stack-check"></i> <span>Administration</span></a>
+											<ul>
+												<li><a href="#"><i class="icon-pencil7"></i> <span>Edit
+															user</span></a>
+													<ul>
+														<li><a href="../templates/createUser.xhtml"><i class="icon-user-plus"></i> <span>Create user</span></a></li>
+														<li><a href="../templates/changeUser.xhtml"><i class="icon-users2"></i> <span>Change user</span></a></li>
+													</ul></li>
+												<li><a href="../templates/language_tool.xhtml"><i class="icon-pencil4"></i> <span>Language tool</span></a></li>
+												<li><a href="../templates/emailSettings.xhtml"><i class="icon-mail5"></i> <span>E-Mail settings</span></a></li>
+											</ul></li>
+										<!-- /ADMINISTRATION -->
+									</ul>
+								</div>
+							</div>
+							<!-- /main navigation -->
+
+						</div>
+					</div>
+					<!-- /main sidebar -->
+	</ui:composition>
+</h:body>
+</html>

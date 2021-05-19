@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" content="" />
+</h:head>
+<h:body>
+	<ui:composition>
+		<h:outputStylesheet library="css" name="header.css" />
+		<ui:fragment rendered="#{login.isLoggedIn() == true}">
+			<!-- Main navbar -->
+			<div class="navbar navbar-default navbar-fixed-top header-highlight"
+				style="color: #FFFFFF; padding-right: 0px">
+				<div id="side-nav" class="navbar-header"
+					style="margin-top: 0; box-shadow: 0px;">
+					<!--  
+					<a class="navbar-brand" href="index.html"><img
+						src="#{config.strAssets}/images/logo_light.png" alt="" /></a>
+					 -->
+					<ul class="nav navbar-nav visible-xs-block">
+						<li><a data-toggle="collapse" data-target="#navbar-mobile"><i
+								class="icon-tree5"></i></a></li>
+						<li><a class="header-fontcolor sidebar-mobile-main-toggle"><i
+								class="icon-paragraph-justify3"></i></a></li>
+					</ul>
+				</div>
+
+				<div id="side-nav" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i
+								class="icon-paragraph-justify3"
+								style="color: rgba(255, 255, 255, 0.75)"></i></a></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown dropdown-user"><a class="dropdown-toggle"
+							data-toggle="dropdown"
+							style="color: rgba(255, 255, 255, 0.75); background-color: #006a9f">
+								<i class="icon-user"></i><span> #{login.strUsername}</span>
+								
+						</a>
+
+							<ul class="dropdown-menu dropdown-menu-right user-dropdown">
+								<li><a href="#" class="user-dropdown"><i
+										class="icon-user-plus"></i> My profile</a></li>
+								<li><a href="#" class="user-dropdown"><i
+										class="icon-cog5"></i> Account settings</a></li>
+								<li><h:form>
+										<h:commandLink class="icon-switch2 user-dropdown"
+											type="submit" value=" Logout" action="#{login.logout()}" />
+									</h:form></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+			<!-- /main navbar -->
+		</ui:fragment>
+	</ui:composition>
+</h:body>
+</html>

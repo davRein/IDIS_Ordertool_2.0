@@ -1,0 +1,34 @@
+.header-background {
+	background-color: #263238;
+}
+
+.header-border {
+	border-width: 0px 0;
+}
+
+.header-fontcolor{
+	color: #000000 !important;
+}
+
+.user-dropdown {
+	padding: 8px 15px;
+	background-color: #006a9f;
+	color: rgba(255, 255, 255, 0.75) !important;
+	box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.1) inset, 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+	
+}
+
+.panel-header {
+	padding-top: 0 !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.panel-content {
+	color: rgba(255, 255, 255, 0.75) !important;
+	box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.1) inset, 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+	background-color: #006a9f;
+	height: 40px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}

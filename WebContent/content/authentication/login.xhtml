@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<meta charset="utf-8" content="" />
+</h:head>
+<h:body>
+	<ui:composition>
+		<ui:fragment rendered="#{login.isLoggedIn() == false}">
+
+			<!-- Page container -->
+			<div class="page-container">
+
+				<!-- Page content -->
+				<div class="page-content">
+
+					<!-- Main content -->
+					<div class="content-wrapper">
+
+						<!-- Content area -->
+						<div class="content">
+
+							<!-- Advanced login -->
+							<h:form>
+								<div class="panel panel-body login-form">
+									<div class="text-center">
+										<div class="icon-object border-slate-300 text-slate-300">
+											<i class="icon-reading"></i>
+										</div>
+										<h5 class="content-group">
+											Login to your account <small class="display-block">Your
+												credentials</small>
+										</h5>
+									</div>
+
+									<div class="form-group has-feedback has-feedback-left">
+										<h:inputText type="text" class="form-control"
+											p:placeholder="Username" value="#{login.strUsername}" />
+										<div class="form-control-feedback">
+											<i class="icon-user text-muted"></i>
+										</div>
+									</div>
+
+									<div class="form-group has-feedback has-feedback-left">
+										<h:inputSecret type="password" class="form-control"
+											p:placeholder="Password" value="#{login.strPassword}" />
+										<div class="form-control-feedback">
+											<i class="icon-lock2 text-muted"></i>
+										</div>
+									</div>
+
+									<div class="form-group login-options">
+										<div class="row">
+											<div class="col-sm-6">
+												<label class="checkbox-inline"> <input
+													type="checkbox" class="styled" checked="checked" />
+													Remember
+												</label>
+											</div>
+
+											<div class="col-sm-6 text-right">
+												<a href="login_password_recover.html">Forgot password?</a>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<h:commandButton type="submit" class="btn bg-blue btn-block"
+											value="Login" action="#{login.validateLogin()}" />
+									</div>
+
+									<span class="help-block text-center no-margin">By
+										continuing, you're confirming that you've read our <a href="#">Terms
+											&amp; Conditions</a> and <a href="#">Cookie Policy</a>
+									</span>
+								</div>
+							</h:form>
+							<!-- /advanced login -->
+
+
+							<!-- Footer -->
+							<div class="footer text-muted text-center">
+								&#169; #{p_const.strYear}<a href="#{p_const.strTec4u_url}"
+									target="_blank" class="href-color"> #{p_const.strCopyright}</a>
+							</div>
+							<!-- /footer -->
+
+						</div>
+						<!-- /content area -->
+
+					</div>
+					<!-- /main content -->
+
+				</div>
+				<!-- /page content -->
+
+			</div>
+			<!-- /page container -->
+
+
+		</ui:fragment>
+	</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<meta charset="utf-8" content="" />
+	
+	
+</h:head>
+<h:body>
+	<ui:composition>
+		<ui:fragment rendered="#{login.isLoggedIn() == true}">
+			<h:outputStylesheet library="css" name="content.css"  />
+			<!-- Page container -->
+			<div id="main-content" class="page-container">
+
+				<!-- Page content -->
+				<div class="page-content">
+
+					<!-- Main sidebar -->
+					<div id="side-nav" class="sidebar sidebar-main sidebar-fixed">
+						<div class="sidebar-content">
+
+							<!-- User menu -->
+							<div class="sidebar-user">
+								<div class="category-content"></div>
+							</div>
+							<!-- /user menu -->
+							
+							<!-- Main navigation -->
+							<ui:include src="../frames/sideMenu.xhtml"/>
+							<!-- /main navigation -->
+						
+						</div>
+					</div>
+					<!-- /main sidebar -->
+					<!-- Main content -->
+					
+					<div class="content-wrapper">
+						<h:outputScript library="js" name="initDatatable.js" />
+						<!-- Content area -->
+						<div class="content forms-padding">
+						
+							<!-- Form validation -->
+							<div class="panel panel-flat">
+								<div class="panel-heading">
+									<div class="heading-elements">
+										<ul class="icons-list">
+			                				<li><a data-action="collapse"></a></li>
+			                				<li><a data-action="reload"></a></li>
+			                				<li><a data-action="close"></a></li>
+			                			</ul>
+		                			</div>
+								</div>
+
+								<div class="panel-body">
+									
+									<ui:fragment rendered="userExist == true">
+										<p>Exist</p>
+									</ui:fragment>
+									
+									<h:form id="frm" class="form-horizontal form-validate-jquery">
+										<fieldset class="content-group">
+											<legend class="text-bold">Create new user</legend>
+
+											<!-- username input -->
+											<div class="form-group">
+												<h:outputLabel class="control-label col-lg-3">Username <span class="text-danger">*</span></h:outputLabel>
+												<div class="col-lg-9">
+													<h:inputText class="form-control" required="true" p:placeholder="Enter username" value="#{user.strUsername}"/>
+												</div>
+											</div>	
+											<!-- /username input -->
+
+											<!-- firstname input -->
+											<div class="form-group">
+												<h:outputLabel class="control-label col-lg-3">Firstname <span class="text-danger">*</span></h:outputLabel>
+												<div class="col-lg-9">
+													<h:inputText class="form-control" required="true" p:placeholder="Enter firstname" value="#{user.strFirstname}"/>
+												</div>
+											</div>	
+											<!-- /firstname input -->
+										
+											<!-- lastname input -->
+											<div class="form-group">
+												<h:outputLabel class="control-label col-lg-3">Lastname <span class="text-danger">*</span></h:outputLabel>
+												<div class="col-lg-9">
+													<h:inputText class="form-control" required="true" p:placeholder="Enter lastname" value="#{user.strLastname}"/>
+												</div>
+											</div>	
+											<!-- /lastname input -->
+
+											<!-- Email input -->
+											<div class="form-group">
+												<h:outputLabel class="control-label col-lg-3">e-mail <span class="text-danger">*</span></h:outputLabel>
+												<div class="col-lg-9">
+													<h:inputText type="email" name="email" class="form-control" id="email" required="true" p:placeholder="Enter a valid email address" value="#{user.strMail}"/>
+												</div>
+											</div>
+											<!-- /email input -->
+
+											<!-- Role input -->
+											<div class="form-group">
+												<h:outputLabel class="control-label col-lg-3">Role <span class="text-danger">*</span></h:outputLabel>
+												<div class="col-lg-9">
+				                            		<h:selectOneMenu value="#{user.strRole}" class="form-control combobox">
+				                                		<f:selectItem itemValue="None" itemLabel="None"/>
+				                                		<f:selectItem itemValue="Admin" itemLabel="Admin"/>
+				                                		<f:selectItem itemValue="User" itemLabel="User"/>
+				                                		<f:selectItem itemValue="Language" itemLabel="Language"/>
+				                            		</h:selectOneMenu>
+			                            		</div>
+											</div>	
+											<!-- /Role input -->
+										</fieldset>
+										<div class="text-right">
+											<h:commandButton type="submit" class="btn popup-btn btn-labeled btn-labeled-right ml-10" value="Create user" action="#{user.createUser()}"/>
+										</div>
+									</h:form>
+								</div>
+							</div>
+							<!-- /form validation -->
+							<!-- Footer -->
+							<div class="footer text-muted">
+								&#169; #{p_const.strYear}<a href="#{p_const.strTec4u_url}" target="_blank" class="href-color"> #{p_const.strCopyright}</a>
+							</div>
+							<!-- /footer -->
+						</div>
+						<!-- /content area -->
+					</div>
+					
+					<!-- /main content -->
+				</div>
+				<!-- /page content -->
+			</div>
+			<!-- /page container -->
+			<script>
+				$(document).ready( function () {
+			    	$('#all-reg-tbl').DataTable();
+				} );
+			</script>
+		</ui:fragment>
+	</ui:composition>
+</h:body>
+</html>

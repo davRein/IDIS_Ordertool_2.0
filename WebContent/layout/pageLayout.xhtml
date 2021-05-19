@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+	<h:head>
+		<meta charset="utf-8" content="" />
+		<title>#{p_const.strTitle}</title>
+	
+		<!-- Global stylesheets -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css"/>
+		<link href="#{config.strAssets}/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css"/>
+		<link href="#{config.strAssets}/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+		<link href="#{config.strAssets}/css/core.css" rel="stylesheet" type="text/css"/>
+		<link href="#{config.strAssets}/css/components.css" rel="stylesheet" type="text/css"/>
+		<link href="#{config.strAssets}/css/colors.css" rel="stylesheet" type="text/css"/>
+		<!-- /global stylesheets -->
+
+		<!-- Core JS files -->
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/loaders/pace.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/core/libraries/jquery.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/core/libraries/bootstrap.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/loaders/blockui.min.js"></script>
+		<!-- /core JS files -->
+
+		<!-- Theme JS files -->
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/forms/styling/switchery.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/forms/styling/uniform.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/ui/moment/moment.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/pickers/daterangepicker.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/ui/nicescroll.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/tables/datatables/datatables.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/forms/selects/select2.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/forms/validation/validate.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/forms/inputs/touchspin.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/forms/styling/switch.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/core/libraries/jquery_ui/interactions.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/forms/selects/select2.min.js"></script>		
+		
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/notifications/bootbox.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/notifications/sweet_alert.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/plugins/forms/selects/select2.min.js"></script>
+		<script type="text/javascript" src="#{config.strAssets}/js/pages/form_select2.js"></script>
+		
+		<script type="text/javascript" src="#{config.strAssets}/js/core/app.js"></script>
+	</h:head>
+    
+    <h:body class="navbar-top login-container">  
+	
+	<div id="page">
+		<div id="login">
+			<ui:insert name="login">
+				<ui:include src="../content/authentication/login.xhtml"/>
+			</ui:insert>
+		</div>
+		 
+		<div id="header">
+			<ui:insert name="header" >
+				<ui:include src="../content/frames/header.xhtml" /> 
+			</ui:insert>
+	    </div>
+	     
+	    <div id="content">
+		   	<ui:insert name="content" >
+		   		<ui:include src="../content/pages/dashboardView.xhtml" />
+		   	</ui:insert>
+	    </div>
+    </div>
+    
+    </h:body>
+			
+</html>

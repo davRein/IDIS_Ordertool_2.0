@@ -1,0 +1,77 @@
+#main-content {
+	padding-top: 0px;
+}
+
+#side-nav {
+	background-color: #006a9f;
+}
+
+.box {
+	background-color: #006a9f;
+	border: none;
+	height: 200px;
+}
+
+.dashboard-box-row{
+	width: 100%;
+}
+
+.dashboard-box{
+	width: 50%;
+	
+}
+
+.popup-header{
+	background-color: #006a9f;
+	border-color: #006a9f;
+	color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.popup-btn{
+	background-color: #006a9f;
+	color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.popup-label-header{
+	top: 50%;
+}
+
+.popup-label-font{
+	color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.forms-padding{
+	padding-top: 20px;
+}
+
+.combobox{
+	height: 36px !important;
+}
+
+.selectBox-btn {
+	margin-top: 10px;
+	width: 200px !important;
+}
+
+.selectBox{
+	width: 200px !important;
+}
+
+.dashboard-notification{
+	float: right !important;
+	margin-top: 8px;
+	margin-right: 8px !important;
+}
+
+.dashboard-titles{
+	margin-left: 8px;
+	margin-top: 8px;
+	margin-left: 8px !important;
+	
+	font-size: 13px;
+}
+
+.tile-content{
+	width: 100%;
+	
+}
