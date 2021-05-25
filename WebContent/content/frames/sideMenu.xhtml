@@ -31,6 +31,7 @@
 										<li><a href="../templates/registrationsEdited.xhtml"><i class="icon-pencil7"></i> <span>Edited registrations</span></a></li>
 										<li><a href="../templates/registrationsOther.xhtml"><i class="icon-pencil7"></i> <span>Other registrations</span></a></li>
 										<!-- ADMINISTRATION -->
+										<ui:fragment rendered="#{login.isAdmin() == true}">
 										<li><a href="#"><i class="icon-stack-check"></i> <span>Administration</span></a>
 											<ul>
 												<li><a href="#"><i class="icon-pencil7"></i> <span>Edit
@@ -42,6 +43,7 @@
 												<li><a href="../templates/language_tool.xhtml"><i class="icon-pencil4"></i> <span>Language tool</span></a></li>
 												<li><a href="../templates/emailSettings.xhtml"><i class="icon-mail5"></i> <span>E-Mail settings</span></a></li>
 											</ul></li>
+										</ui:fragment>
 										<!-- /ADMINISTRATION -->
 									</ul>
 								</div>

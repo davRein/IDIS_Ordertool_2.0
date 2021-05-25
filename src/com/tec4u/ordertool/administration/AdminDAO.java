@@ -72,8 +72,8 @@ public class AdminDAO {
 	}
 	
 	public static void insertUser(List<Users> newUser) {
-		String sql = "INSERT INTO idis_ordertool.staff_data (username, password, salt, firstname, lastname, mail, role, status)"
-				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+		String sql = "INSERT INTO idis_ordertool.staff_data (username, password, salt, firstname, lastname, mail, role, status, pwd_changed)"
+				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, false);";
 		
 		int nRoleId = 0;
 		switch (newUser.get(0).getStrRole()) {

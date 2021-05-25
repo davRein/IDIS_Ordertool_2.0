@@ -45,7 +45,7 @@ public class UserBean implements Serializable {
 			strHash = BCrypt.hashpw(strGeneratedPassword, strSalt);
 			
 			userList.add(new Users(strUsername, strLastname, strFirstname, strMail, strRole, strStatus, strHash, strSalt));
-			//AdminDAO.insertUser(userList);
+			AdminDAO.insertUser(userList);
 			am.sendEmail(strMail, strGeneratedPassword);
 			userExist = false;
 		} else

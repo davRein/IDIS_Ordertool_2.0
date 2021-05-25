@@ -44,8 +44,7 @@ public class AccountMails {
 			message.setFrom(new InternetAddress(strSender));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(strReceiver));
 			message.setSubject("Your generated password for IDIS Ordertool");
-			message.setText("Your generated password is " + strGeneratedPassword
-					+ ". Please change it inside the application.");
+			message.setText("Your generated password is \"" + strGeneratedPassword + "\".");
 
 			// send the message
 			Transport.send(message);

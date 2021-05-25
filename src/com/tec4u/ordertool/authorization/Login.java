@@ -22,6 +22,15 @@ public class Login implements Serializable{
 	private String strUsername = "";
 	private String strPassword = "";
 	private boolean isLoggedIn = false;
+	private boolean isAdmin = false;
+	
+	/**
+	 * @return the isAdmin
+	 */
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+	
 	/**
 	 * @return the strUsername
 	 */
@@ -74,6 +83,7 @@ public class Login implements Serializable{
 			
 			if(strUserPassword.equals(strHash)) {
 				isLoggedIn = true;
+				isAdmin = LoginDAO.isAdmin(strUsername);
 			} else {
 				isLoggedIn = false;
 				System.out.println("Password error: " + strPassword);
@@ -82,4 +92,5 @@ public class Login implements Serializable{
 			System.out.println("User" + "doesn't exist");
 		}
 	}
+	
 }
