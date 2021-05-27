@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" content="" />
+	
+	
+</h:head>
+<h:body>
+	<ui:composition>
+		<ui:fragment rendered="#{login.isLoggedIn() == true}">
+			<h:outputStylesheet library="css" name="content.css"  />
+			<h:outputStylesheet library="css" name="modals.css"  />
+			<h:outputStylesheet library="css" name="tbl-test.css"  />
+			<!-- Page container -->
+			<div id="main-content" class="page-container">
+
+				<!-- Page content -->
+				<div class="page-content">
+
+					<!-- Main sidebar -->
+					<ui:include src="../frames/sideMenu.xhtml"/>
+					<!-- /main sidebar -->
+
+
+					<!-- Main content -->
+					<div class="content-wrapper">
+						<h:outputScript library="js" name="init_table.js" />
+						<!-- Content area -->
+						<div class="content">
+							<div class="row">
+								<div class="col-md-6" style="width: 100% !important">
+									<div class="panel panel-flat">
+										<div class="panel-body">
+											<div class="form-group">
+												<div class="panel-heading">
+													<h5 class="panel-title">Registrations</h5>
+													<div class="heading-elements">
+														<ul class="icons-list">
+			                								<li><a data-action="collapse"></a></li>
+			                								<li><a data-action="reload"></a></li>
+			                								<li><a data-action="close"></a></li>
+			                							</ul>
+		                							</div>
+												</div>
+												<div class="datatable-header">
+													<h:dataTable id="all-reg-tbl"  class="table datatable-sorting" value="#{tbl_content.getWaitData()}" var="o">
+														<h:column class="rowToClick">
+															<f:facet name="header">Company</f:facet>
+															<h:outputText value="#{o.strCompany}"/>
+															<div id="wrapperDivHidden" class="wrapperDivHidden">
+                            									<h:inputHidden type="hidden" id="customerId" value="#{o.nCustomerId}" />
+                        									</div>
+														</h:column>
+														<h:column class="rowToClick">
+															<f:facet name="header">Lastname</f:facet>
+															<h:outputText value="#{o.strLastname}"/>
+														</h:column>
+														<h:column class="rowToClick">
+															<f:facet name="header">Firstname</f:facet>
+															<h:outputText value="#{o.strFirstname}"/>
+														</h:column>
+														<h:column class="rowToClick">
+															<f:facet name="header">Mailaddress</f:facet>
+															<h:outputText value="#{o.strMailaddress}"/>
+														</h:column>
+														<h:column class="rowToClick">
+															<f:facet name="header">Country</f:facet>
+															<h:outputText value="#{o.strCountry}"/>
+														</h:column>
+														<h:column class="rowToClick">
+															<f:facet name="header">Date</f:facet>
+															<h:outputText value="#{o.strDate}"/>
+														</h:column>
+													</h:dataTable>
+												</div>
+												
+												<!-- Registration popup -->
+												<div id="modal_theme_custom" class="modal fade" onload="">
+													<div class="modal-dialog" style="width: 750px !important;">
+														<div class="modal-content">
+															<div class="modal-header popup-header">
+																<button type="button" class="close popup-label-font" data-dismiss="modal">&#10006;</button>
+																<h6 class="modal-title popup-label-header" >Custom header color</h6>
+															</div>
+
+															<div class="modal-body">
+																<h:inputHidden id="cId"></h:inputHidden>
+																<div class="panel-body">
+																	<h:form class="form-horizontal form-validate-jquery">
+																		<fieldset class="content-group">
+																			<legend id="lgd" class="text-bold">Customer overview</legend>
+
+																			<table id="vdatatable" class="table datatable-sorting">
+    																			<tbody>
+        																			<tr>           	
+            																			<th data-column="Username" class="vertical-header-column">Customer ID</th>
+            																			<td data-column="Balakumar">#</td>
+        																			</tr>
+        																			<tr>
+            																			<th data-column="Username" class="vertical-header-column">Company</th>
+            																			<td data-column="Balakumar">#</td>
+        																			</tr>
+        																			<tr>
+            																			<th data-column="Username" class="vertical-header-column">Address</th>
+            																			<td data-column="Balakumar">#</td>
+        																			</tr>
+        																			<tr>        
+            																			<th data-column="Username" class="vertical-header-column">E-Mail</th>
+            																			<td data-column="Balakumar">#</td>
+        																			</tr>
+        																			<tr>        
+            																			<th data-column="Username" class="vertical-header-column">Phone</th>
+            																			<td data-column="Balakumar">#</td>
+        																			</tr>
+        																			<tr>        
+            																			<th data-column="Username" class="vertical-header-column">Date</th>
+            																			<td data-column="Balakumar">#</td>
+        																			</tr>
+        																			<tr>        
+            																			<th data-column="Username" class="vertical-header-column">Newsletter</th>
+            																			<td data-column="Balakumar">#</td>
+        																			</tr>
+    																			</tbody>
+																			</table>
+																			
+																			<div class="modal-footer buttons">
+																				<h:commandButton type="submit" class="btn popup-btn" value="Approve" data-dismiss="modal"/>
+																				<h:commandButton type="submit" class="btn popup-btn" value="Non IDIS Country"/>
+																				<h:commandButton type="submit" class="btn popup-btn" value="Non IDIS Activity"/>
+																				<h:commandButton type="submit" class="btn popup-btn" value="EDU"/>
+																				<h:commandButton type="submit" class="btn popup-btn" value="Private"/>
+																				<h:commandButton type="submit" class="btn popup-btn" value="Waitinglist"/>
+																				<h:commandButton type="button" class="btn popup-btn" value="Delete" onclick="alert(testFunction())"/>
+																			</div>
+																		</fieldset>
+																		<!-- Action -->
+																			
+																			<!-- /Action-->
+																	</h:form>
+																</div>
+															</div>
+
+															
+														</div>
+													</div>
+												</div>
+												<!-- /Registration popup -->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Footer -->
+							<div class="footer text-muted">
+								&#169; #{p_const.strYear}<a href="#{p_const.strTec4u_url}"
+								target="_blank" class="href-color"> #{p_const.strCopyright}</a>
+							</div>
+							<!-- /footer -->
+						</div>
+						<!-- /content area -->
+					</div>
+				<!-- /main content -->
+					
+
+				</div>
+				<!-- /page content -->
+
+			</div>
+			<!-- /page container -->
+			
+			<script>
+			$(document).ready( function () {
+			    $('#all-reg-tbl').DataTable();
+			    $('#all-reg-tbl tr > td').click(function() {
+			    	var customerId = $(this).parents('tr').find('.wrapperDivHidden input[type="hidden"]').val();
+	                $('#cId').val(customerId);
+	                $("#modal_theme_custom").modal('show');
+	                return false;
+			    });
+			    $('#all-reg-tbl').on('click', 'tr', function () {
+			        $("#modal_theme_custom").modal('show');
+			    });
+			    this.dTable = $('#vdatatable').DataTable({
+			        dom:            'ftip',
+			        stateSave:      saveState,
+			        retrieve:       true,
+			        autoWidth:      false,
+			        info:           true,
+			        paging:         false,
+			        scrollY:        false,
+			        scrollX:        true,
+			        scrollCollapse: false,
+			        fixedHeader:    true,
+			        fixedColumns:   {
+			            leftColumns: 1
+			        },
+			    });
+			} );
+			
+			function testFunction(){
+				return document.getElementById('customerId').value;
+			}
+			
+		</script>
+			
+		</ui:fragment>
+	</ui:composition>
+</h:body>
+</html>

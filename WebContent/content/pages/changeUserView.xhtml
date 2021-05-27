@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" content="" />
+</h:head>
+<h:body>
+	<ui:composition>
+		<ui:fragment rendered="#{login.isLoggedIn() == true}">
+			<h:outputStylesheet library="css" name="content.css"  />
+			<!-- Page container -->
+			<div id="main-content" class="page-container">
+
+				<!-- Page content -->
+				<div class="page-content">
+
+					<!-- Main sidebar -->
+					<div id="side-nav" class="sidebar sidebar-main sidebar-fixed">
+						<div class="sidebar-content">
+
+							<!-- User menu -->
+							<div class="sidebar-user">
+								<div class="category-content"></div>
+							</div>
+							<!-- /user menu -->
+
+
+							<!-- Main navigation -->
+							<ui:include src="../frames/sideMenu.xhtml"/>	
+							<!-- /main navigation -->
+						
+						</div>
+					</div>
+					<!-- /main sidebar -->
+			<!-- Main content -->
+			<div class="content-wrapper">
+			<h:outputScript library="js" name="init_table.js" />
+				<!-- Content area -->
+				<div class="content">
+
+					<!-- Default ordering -->
+					<div class="panel panel-flat">
+						<div class="panel-heading">
+							<h5 class="panel-title">Change User</h5>
+							<div class="heading-elements">
+								<ul class="icons-list">
+			                		<li><a data-action="collapse"></a></li>
+			                		<li><a data-action="reload"></a></li>
+			                		<li><a data-action="close"></a></li>
+			                	</ul>
+		                	</div>
+						</div>
+						<div class="datatable-header">
+							<h:dataTable id="all-reg-tbl" class="table datatable-sorting" value="#{user.getUserList()}" var="o">
+								
+								<h:column class="rowToClick">
+									<f:facet name="header">Username</f:facet>
+									<h:outputText value="#{o.strUsername}"/>
+								</h:column>
+								<h:column class="rowToClick">
+									<f:facet name="header">Firstname</f:facet>
+									<h:outputText value="#{o.strFirstname}"/>
+								</h:column>
+								<h:column class="rowToClick">
+									<f:facet name="header">Lastname</f:facet>
+									<h:outputText value="#{o.strLastname}"/>
+								</h:column>
+								<h:column class="rowToClick">
+									<f:facet name="header">e-mail</f:facet>
+									<h:outputText value="#{o.strMail}"/>
+								</h:column>
+								<h:column class="rowToClick">
+									<f:facet name="header">Role</f:facet>
+									<h:outputText value="#{o.strRole}"/>
+								</h:column>
+								<h:column class="rowToClick">
+									<f:facet name="header">Status</f:facet>
+									<h:outputText value="#{o.strStatus}"/>
+								</h:column>
+								<h:column>
+									<ul class="icons-list">
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+													<i class="icon-menu9"></i>
+												</a>
+
+												<ul class="dropdown-menu dropdown-menu-right">
+													<li><a href="#"><i class="icon-file-pdf"></i> Copy User</a></li>
+													<li><a href="#"><i class="icon-file-excel"></i> Activate / Deactivate</a></li>
+													<li><a href="#"><i class="icon-file-word"></i> Promote / unpromote</a></li>
+													<li><a href="#"><i class="icon-file-word"></i> Lock / unlock</a></li>
+													<li><a href="#"><i class="icon-file-word"></i> Send password</a></li>
+													<li><a href="#"><i class="icon-file-word"></i> Reset password</a></li>
+												</ul>
+											</li>
+										</ul>
+								</h:column>
+							</h:dataTable>
+						</div>
+					</div>
+					<!-- /default ordering -->
+					<!-- Footer -->
+					<div class="footer text-muted">
+								&#169; #{p_const.strYear}<a href="#{p_const.strTec4u_url}"
+									target="_blank" class="href-color"> #{p_const.strCopyright}</a>
+							</div>
+					<!-- /footer -->
+
+				</div>
+				<!-- /content area -->
+
+			</div>
+			<!-- /main content -->
+					
+
+				</div>
+				<!-- /page content -->
+
+			</div>
+			<!-- /page container -->
+			
+			<script>
+				$(document).ready( function () {
+				    $('#all-reg-tbl').DataTable();
+				    $('#all-reg-tbl').on('click', 'tr', function () {
+				        $("#modal_theme_custom").modal('show');
+				    });
+				} );
+			</script>
+			
+		</ui:fragment>
+	</ui:composition>
+</h:body>
+</html>
